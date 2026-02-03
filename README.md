@@ -1,34 +1,23 @@
 # 🐳 Docker pour les débutants – Guide pratique
 
-## 📌 Description
-- Introduction à Docker et à la conteneurisation
-- Tutoriel orienté pratique
-- Basé sur un article DataCamp
-- Cible : débutants (dev, data, sysadmin)
 
-## 🎯 Objectifs
-- Comprendre Docker et son utilité
+## 🎯 Objectifs du tutoriel
+Nous verrons dans ce tutoriel, comment:
 - Installer Docker
 - Exécuter des conteneurs
 - Créer des images Docker
 - Gérer le stockage persistant
 - Déployer des applications multi-conteneurs
 - Comprendre la mise en réseau
-- Appliquer les bonnes pratiques
 
-## 🧠 Qu’est-ce que Docker ?
-- Plateforme open-source de conteneurisation
-- Empaquetage application + dépendances
-- Conteneurs légers et portables
-- Partage du noyau de l’OS
-- Alternative aux machines virtuelles
-- Outil clé DevOps et cloud-native
 
 ## 💻 Installation de Docker
 ### Windows
 - Docker Desktop
 - WSL 2 activé
-- Vérification : docker --version
+- Vérification : 
+```bash
+docker --version
 
 ### macOS
 - Docker Desktop
