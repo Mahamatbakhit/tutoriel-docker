@@ -4,8 +4,8 @@ Docker est un outil incontournable pour créer, déployer et exécuter des appli
 
 ---
 
-## 🎯 Objectifs du tutoriel
-À la fin de ce guide, vous saurez :
+## Objectifs du tutoriel
+Dans ce tutoriel, nous allons effectuer les taches suivantes :
 - Installer Docker
 - Exécuter des conteneurs
 - Créer des images Docker
@@ -13,38 +13,13 @@ Docker est un outil incontournable pour créer, déployer et exécuter des appli
 - Déployer des applications multi-conteneurs
 - Comprendre la mise en réseau Docker
 
+Nous allons travailler dans un environnement ubuntu
 ---
 
 ## 💻 Installation de Docker
 
-### 🪟 Windows
-**Prérequis**
-- Windows 10/11
-- WSL 2 activé
-
-**Étapes**
-1. Télécharger Docker Desktop : https://www.docker.com/products/docker-desktop/
-2. Installer et redémarrer
-3. Vérifier l’installation :
-
-```bash
-docker --version
-```
-
----
-
-### 🍎 macOS
-1. Télécharger Docker Desktop
-2. Lancer Docker depuis Applications
-3. Vérifier :
-
-```bash
-docker --version
-```
-
----
-
 ### 🐧 Linux (Ubuntu)
+Pour installer docker, nous allons utiliser les commandes suivantes:
 
 ```bash
 sudo apt update
@@ -53,11 +28,13 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-Vérification :
+Vérification de l'installation effective de Docker:
 
 ```bash
 docker --version
 ```
+![Description de l'image](images/img1.png)
+
 
 Utiliser Docker sans `sudo` (optionnel) :
 
