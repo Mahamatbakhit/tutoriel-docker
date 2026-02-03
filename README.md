@@ -1,165 +1,193 @@
-# 🐳 Docker pour les débutants – Guide pratique
+# 🐳 Tutoriel Docker – Guide pratique pour débutants
 
+Docker est un outil incontournable pour créer, déployer et exécuter des applications de manière rapide, portable et fiable.
+
+---
 
 ## 🎯 Objectifs du tutoriel
-Nous verrons dans ce tutoriel, comment:
+À la fin de ce guide, vous saurez :
 - Installer Docker
 - Exécuter des conteneurs
 - Créer des images Docker
 - Gérer le stockage persistant
 - Déployer des applications multi-conteneurs
-- Comprendre la mise en réseau
+- Comprendre la mise en réseau Docker
 
+---
 
 ## 💻 Installation de Docker
-### Windows
-- Docker Desktop
+
+### 🪟 Windows
+**Prérequis**
+- Windows 10/11
 - WSL 2 activé
-- Vérification : 
+
+**Étapes**
+1. Télécharger Docker Desktop : https://www.docker.com/products/docker-desktop/
+2. Installer et redémarrer
+3. Vérifier l’installation :
+
 ```bash
 docker --version
+```
 
-### macOS
-- Docker Desktop
-- Lancer depuis Applications
-- Vérification : docker --version
+---
 
-### Linux (Ubuntu)
-- apt update
-- installation docker-ce
-- Vérification : docker --version
+### 🍎 macOS
+1. Télécharger Docker Desktop
+2. Lancer Docker depuis Applications
+3. Vérifier :
+
+```bash
+docker --version
+```
+
+---
+
+### 🐧 Linux (Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+Vérification :
+
+```bash
+docker --version
+```
+
+Utiliser Docker sans `sudo` (optionnel) :
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+---
 
 ## 🧩 Concepts de base
+
 ### 📦 Images Docker
-- Modèles immuables
-- Contiennent OS + code + dépendances
-- Créées avec Dockerfile
-- Stockées sur Docker Hub
-- Commandes
-  - docker pull
-  - docker images
-  - docker rmi
+```bash
+docker pull nginx
+docker images
+docker rmi nginx
+```
+
+---
 
 ### ▶️ Conteneurs Docker
-- Instance d’une image
-- Environnement isolé
-- Cycle de vie
-  - create
-  - start
-  - stop
-  - restart
-  - rm
-- Commandes
-  - docker run
-  - docker ps -a
+```bash
+docker run nginx
+docker ps
+docker ps -a
+docker stop <container_id>
+docker rm <container_id>
+```
+
+---
 
 ### 🌐 Docker Hub
-- Registre cloud
-- Images officielles et communautaires
-- Partage public ou privé
-- Commandes
-  - docker login
-  - docker push
-  - docker search
+```bash
+docker login
+docker search redis
+docker pull redis
+docker push username/my-image
+```
+
+---
 
 ## 🚀 Premier conteneur
+
 ### Test installation
-- docker run hello-world
+```bash
+docker run hello-world
+```
 
 ### Serveur Nginx
-- docker run -d -p 8080:80 nginx
-- Accès navigateur
-  - http://localhost:8080
+```bash
+docker run -d -p 8080:80 nginx
+```
+
+Accès : http://localhost:8080
+
+---
 
 ## 🛠 Création d’images Docker
+
 ### Dockerfile
-- FROM : image de base
-- WORKDIR : dossier de travail
-- COPY : copie des fichiers
-- RUN : installation dépendances
-- CMD : commande de démarrage
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
+```
 
 ### Build et Run
-- docker build -t my-app .
-- docker run -d -p 5000:5000 my-app
+```bash
+docker build -t my-app .
+docker run -d -p 5000:5000 my-app
+```
+
+---
 
 ## 💾 Volumes Docker
-- Données éphémères par défaut
-- Volumes = persistance des données
-- Création
-  - docker volume create my-volume
-- Utilisation
-  - -v my-volume:/app/data
+```bash
+docker volume create my-volume
+docker run -v my-volume:/app/data my-app
+```
+
+---
 
 ## 🔗 Docker Compose
-### Pourquoi ?
-- Applications multi-conteneurs
-- Gestion simplifiée
-- Une seule commande
 
 ### docker-compose.yml
-- version
-- services
-  - web
-  - database
-- volumes
-  - persistance des données
+```yaml
+version: "3.9"
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+```
 
 ### Commandes
-- docker-compose up -d
-- docker-compose down
+```bash
+docker-compose up -d
+docker-compose down
+```
+
+---
 
 ## 🌐 Réseaux Docker
-### Objectif
-- Communication entre conteneurs
-- Isolation et sécurité
+```bash
+docker network create my-network
+docker run --network my-network nginx
+```
 
-### Types de réseaux
-- Bridge (par défaut)
-- Host
-- Overlay
-- Macvlan
-
-### Réseau personnalisé
-- docker network create my-network
-- docker run --network my-network
-
-### Bonnes pratiques réseau
-- Réseaux personnalisés
-- DNS via noms de conteneurs
-- Limiter l’exposition externe
-- Surveiller le trafic
+---
 
 ## ✅ Bonnes pratiques Docker
 - Images officielles
-- Images légères (slim)
-- Builds multi-étapes
-- Tags versionnés
-- Scan de vulnérabilités
-- Gestion sécurisée des secrets
-- Utilisation de .dockerignore
-- Logs et monitoring
+- Images légères
+- Versionner
+- .dockerignore
+- Sécurité
+- Logs
+
+---
 
 ## 🚧 Prochaines étapes
 - Docker Swarm
 - Kubernetes
-- Sécurité des conteneurs
-- CI/CD avec Docker
-- Déploiement cloud
-- Stratégies de stockage avancées
+- CI/CD
+- Cloud
+
+---
 
 ## 🏁 Conclusion
-- Docker = outil clé du développement moderne
-- Facilite le déploiement
-- Améliore la portabilité
-- Base solide pour DevOps et Cloud
-
-## ❓ FAQ
-### Docker vs Machine Virtuelle
-- Docker : léger, rapide
-- VM : OS complet, plus lourde
-
-### Sécurité Docker
-- Images fiables
-- Scans de sécurité
-- Secrets bien gérés
+Docker facilite le déploiement et constitue une base solide pour le DevOps moderne.
