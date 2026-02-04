@@ -7,16 +7,16 @@ Docker est un outil incontournable pour créer, déployer et exécuter des appli
 ## Objectifs du tutoriel
 Dans ce tutoriel, nous allons effectuer les taches suivantes :
 - Installer Docker
-- Exécuter des conteneurs
 - Créer des images Docker
+- Exécuter des conteneurs
 - Gérer le stockage persistant
 - Déployer des applications multi-conteneurs
-- Comprendre la mise en réseau Docker
+- La mise en réseau Docker
 
 Nous allons travailler dans un environnement ubuntu
 ---
 
-## 💻 Installation de Docker
+## 1 Installation de Docker
 
 ### 🐧 Linux (Ubuntu)
 Pour installer docker, nous allons utiliser les commandes suivantes:
@@ -36,21 +36,33 @@ docker --version
 ![Description de l'image](images/img1.png)
 
 
-Utiliser Docker sans `sudo` (optionnel) :
+Pour utiliser Docker sans `sudo` (optionnel), il faut utiliser la commande suivante :
 
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
 ```
+![Description de l'image](images/img1.png)
 
 ---
 
-## 🧩 Concepts de base
-
+## 2 Concepts de base
+Au cœur de Docker se trouvent les imagesqui servent de modèles pour les conteneurs ; les conteneursqui sont les instances en cours d'exécution de ces images ; et le Docker Hubun référentiel centralisé pour le partage et la gestion des images.
 ### 📦 Images Docker
+La commande suivante permet de telecharger une image
 ```bash
 docker pull nginx
+```
+![Description de l'image](images/img3.png)
+
+La commande suivante permet de voir la liste des images dans notre docker
+```bash
 docker images
+```
+![Description de l'image](images/img4.png)
+
+Cette commande permet de supprimer une image
+```bash
 docker rmi nginx
 ```
 
