@@ -1,15 +1,14 @@
-# Utiliser Python comme base
-FROM python:3.9-slim
+# Base image containing Python runtime
+FROM python:3.9
 
-# Définir le dossier de travail
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copier les fichiers et installer Flask
-COPY . .
+# Copy the application files from the host to the container
+COPY . /app
+
+# Install the dependencies listed in requirements.txt
 RUN pip install -r requirements.txt
 
-# Exposer le port 80
-EXPOSE 80
-
-# Lancer l'app
+# Define the command to run the Flask app when the container starts
 CMD ["python", "app.py"]

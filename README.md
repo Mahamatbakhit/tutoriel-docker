@@ -47,7 +47,7 @@ newgrp docker
 ---
 
 ## 2 Concepts de base
-Au cœur de Docker se trouvent les imagesqui servent de modèles pour les conteneurs ; les conteneursqui sont les instances en cours d'exécution de ces images ; et le Docker Hubun référentiel centralisé pour le partage et la gestion des images.
+Au cœur de Docker se trouvent les images qui servent de modèles pour les conteneurs ; les conteneurs qui sont les instances en cours d'exécution de ces images ; et le Docker Hub un référentiel centralisé pour le partage et la gestion des images.
 ### 📦 Images Docker
 La commande suivante permet de telecharger l'image nginx
 ```bash
@@ -61,7 +61,7 @@ docker images
 ```
 ![Description de l'image](images/img4.png)
 
-On peut également visualiser la liste des images, créer et supprimer des images directement sur Docker Desktop
+On peut également visualiser la liste des images directement sur Docker Desktop
 
 ![Description de l'image](images/img5.png)
 
@@ -111,7 +111,7 @@ docker run hello-world
 ```
 ![Description de l'image](images/img11.png)
 
-### Serveur Nginx
+### Lancement du Serveur Nginx
 ```bash
 docker run -d -p 8090:80 nginx
 ```
@@ -122,6 +122,7 @@ Accès au serveur nginx : http://localhost:8090
 ---
 
 ## 🛠 Création d’images Docker
+La création d'une image Docker implique l'écriture d'un Dockerfile, un script qui automatise la construction d'une image
 
 ### Dockerfile
 ```dockerfile
@@ -175,24 +176,3 @@ docker run --network my-network nginx
 ```
 
 ---
-
-## ✅ Bonnes pratiques Docker
-- Images officielles
-- Images légères
-- Versionner
-- .dockerignore
-- Sécurité
-- Logs
-
----
-
-## 🚧 Prochaines étapes
-- Docker Swarm
-- Kubernetes
-- CI/CD
-- Cloud
-
----
-
-## 🏁 Conclusion
-Docker facilite le déploiement et constitue une base solide pour le DevOps moderne.
