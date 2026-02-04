@@ -49,7 +49,7 @@ newgrp docker
 ## 2 Concepts de base
 Au cœur de Docker se trouvent les imagesqui servent de modèles pour les conteneurs ; les conteneursqui sont les instances en cours d'exécution de ces images ; et le Docker Hubun référentiel centralisé pour le partage et la gestion des images.
 ### 📦 Images Docker
-La commande suivante permet de telecharger une image
+La commande suivante permet de telecharger l'image nginx
 ```bash
 docker pull nginx
 ```
@@ -99,12 +99,7 @@ docker rm <container_id>
 ---
 
 ### 🌐 Docker Hub
-```bash
-docker login
-docker search redis
-docker pull redis
-docker push username/my-image
-```
+Docker Hub est un service de registre basé sur le cloud qui permet de trouver, de stocker et de distribuer des images de conteneurs. Les utilisateurs peuvent envoyer des images personnalisées à Docker Hub et les partager publiquement ou en privé.
 
 ---
 
@@ -114,14 +109,16 @@ docker push username/my-image
 ```bash
 docker run hello-world
 ```
+![Description de l'image](images/img11.png)
 
 ### Serveur Nginx
 ```bash
-docker run -d -p 8080:80 nginx
+docker run -d -p 8090:80 nginx
 ```
+![Description de l'image](images/img12.png)
 
-Accès : http://localhost:8080
-
+Accès au serveur nginx : http://localhost:8090
+![Description de l'image](images/img13.png)
 ---
 
 ## 🛠 Création d’images Docker
