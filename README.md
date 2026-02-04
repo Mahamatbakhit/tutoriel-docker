@@ -42,7 +42,7 @@ Pour utiliser Docker sans `sudo` (optionnel), il faut utiliser la commande suiva
 sudo usermod -aG docker $USER
 newgrp docker
 ```
-![Description de l'image](images/img1.png)
+![Description de l'image](images/img2.png)
 
 ---
 
@@ -61,7 +61,11 @@ docker images
 ```
 ![Description de l'image](images/img4.png)
 
-Cette commande permet de supprimer une image
+On peut également visualiser la liste des images, créer et supprimer des images directement sur Docker Desktop
+
+![Description de l'image](images/img5.png)
+
+Cette commande permet de supprimer l'image nginx
 ```bash
 docker rmi nginx
 ```
@@ -69,14 +73,29 @@ docker rmi nginx
 ---
 
 ### ▶️ Conteneurs Docker
+La commande suivante exécute un conteneur Nginx en mode détaché (en arrière-plan), en faisant correspondre le port 80 à l'intérieur du conteneur au port 8090 sur la machine hôte :
 ```bash
-docker run nginx
-docker ps
+docker run -d -p 8090:80 nginx
+```
+![Description de l'image](images/img6.png)
+
+Pour vérifier tous les conteneurs en cours d'exécution et arrêtés :
+```bash
 docker ps -a
+```
+![Description de l'image](images/img8.png)
+
+Pour arrêter un conteneur :
+```bash
 docker stop <container_id>
+```
+![Description de l'image](images/img9.png)
+
+Pour supprimer un conteneur : 
+```bash
 docker rm <container_id>
 ```
-
+![Description de l'image](images/img10.png)
 ---
 
 ### 🌐 Docker Hub
