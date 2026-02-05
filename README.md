@@ -1,4 +1,4 @@
-# 🐳 Tutoriel Docker – Guide pratique pour débutants
+# 🐳 Etape de realisation du Tutoriel Docker
 
 Docker est un outil incontournable pour créer, déployer et exécuter des applications de manière rapide, portable et fiable.
 
@@ -134,11 +134,12 @@ CMD ["python", "app.py"]
 ```
 
 ### Build et Run
+Pour construier une image, il faut utiliser la commande suivante :
 ```bash
 docker build -t my-app .
 ```
 ![Description de l'image](images/img14.png)
-
+Pour executer notre image construite, nous allons utiliser la commande suivante : 
 ```bash
 docker run -d -p 5000:5000 my-app
 ```
@@ -146,10 +147,16 @@ docker run -d -p 5000:5000 my-app
 ---
 
 ## 5 Volumes Docker
+Pour conserver les données entre les redémarrages de conteneurs et les partager entre plusieurs conteneurs, Docker fournit des volumes, un mécanisme intégré pour gérer efficacement le stockage persistant.
+
+Avant d'utiliser un volume, nous devons en créer un. Exécutez la commande suivante :
 ```bash
 docker volume create my-volume
 ```
 ![Description de l'image](images/img16.png)
+
+Maintenant, démarrons un conteneur et montons le volume à l'intérieur :
+
 ```bash
 docker run -v my-volume:/app/data my-app
 ```
@@ -157,8 +164,9 @@ docker run -v my-volume:/app/data my-app
 ---
 
 ## 6 Docker Compose
-
+Docker Compose est un outil qui simplifie la gestion des applications multi-conteneurs. 
 ### docker-compose.yml
+Voici comment nous définissons notre configuration multi-conteneurs dans Docker Compose :
 ```yaml
 version: "3.9"
 services:
@@ -169,10 +177,15 @@ services:
 ```
 
 ### Commandes
+
+Une fois que le fichier docker-compose.yml est prêt, nous pouvons lancer l'ensemble de la pile d'applications à l'aide d'une seule commande :
+
 ```bash
 docker compose up -d
 ```
 ![Description de l'image](images/img18.png)
+
+Pour arrêter tous les services, il faut utiliser la commande suivante :
 
 ```bash
 docker compose down
@@ -182,11 +195,15 @@ docker compose down
 ---
 
 ## 7 Réseaux Docker
+Docker propose une gamme d'options de mise en réseau pour répondre à différents cas d'utilisation, des réseaux internes isolés aux configurations accessibles à l'extérieur.
+
+Avant d'exécuter des conteneurs, nous devons d'abord créer un réseau dédié :
 ```bash
 docker network create my-custom-network
 ```
 ![Description de l'image](images/img20.png)
 
+Démarrons maintenant deux conteneurs et connectons-les à notre réseau nouvellement créé :
 ```bash
 docker run -d --network my-custom-network --name app1 my-app
 docker run -d --network my-custom-network --name app2 my-app
