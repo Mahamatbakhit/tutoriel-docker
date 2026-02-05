@@ -16,7 +16,7 @@ Dans ce tutoriel, nous allons effectuer les taches suivantes :
 Nous allons travailler dans un environnement ubuntu
 ---
 
-## 1 Installation de Docker
+## 1. Installation de Docker
 
 ### 🐧 Linux (Ubuntu)
 Pour installer docker, nous allons utiliser les commandes suivantes:
@@ -46,7 +46,7 @@ newgrp docker
 
 ---
 
-## 2 Concepts de base
+## 2. Concepts de base
 Au cœur de Docker se trouvent les images qui servent de modèles pour les conteneurs ; les conteneurs qui sont les instances en cours d'exécution de ces images ; et le Docker Hub un référentiel centralisé pour le partage et la gestion des images.
 ### 📦 Images Docker
 La commande suivante permet de telecharger l'image nginx
@@ -103,7 +103,7 @@ Docker Hub est un service de registre basé sur le cloud qui permet de trouver, 
 
 ---
 
-## 3 Premier conteneur
+## 3. Premier conteneur
 
 ### Test installation
 ```bash
@@ -121,7 +121,7 @@ Accès au serveur nginx : http://localhost:8090
 ![Description de l'image](images/img13.png)
 ---
 
-## 4 Création d’images Docker
+## 4. Création d’images Docker
 La création d'une image Docker implique l'écriture d'un Dockerfile, un script qui automatise la construction d'une image
 
 ### Dockerfile
@@ -146,7 +146,7 @@ docker run -d -p 5000:5000 my-app
 ![Description de l'image](images/img15.png)
 ---
 
-## 5 Volumes Docker
+## 5. Volumes Docker
 Pour conserver les données entre les redémarrages de conteneurs et les partager entre plusieurs conteneurs, Docker fournit des volumes, un mécanisme intégré pour gérer efficacement le stockage persistant.
 
 Avant d'utiliser un volume, nous devons en créer un. Exécutez la commande suivante :
@@ -163,7 +163,7 @@ docker run -v my-volume:/app/data my-app
 ![Description de l'image](images/img17.png)
 ---
 
-## 6 Docker Compose
+## 6. Docker Compose
 Docker Compose est un outil qui simplifie la gestion des applications multi-conteneurs. 
 ### docker-compose.yml
 Voici comment nous définissons notre configuration multi-conteneurs dans Docker Compose :
@@ -194,7 +194,7 @@ docker compose down
 
 ---
 
-## 7 Réseaux Docker
+## 7. Réseaux Docker
 Docker propose une gamme d'options de mise en réseau pour répondre à différents cas d'utilisation, des réseaux internes isolés aux configurations accessibles à l'extérieur.
 
 Avant d'exécuter des conteneurs, nous devons d'abord créer un réseau dédié :
