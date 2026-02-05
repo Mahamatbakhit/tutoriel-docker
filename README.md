@@ -103,7 +103,7 @@ Docker Hub est un service de registre basé sur le cloud qui permet de trouver, 
 
 ---
 
-## 🚀 Premier conteneur
+## 3 Premier conteneur
 
 ### Test installation
 ```bash
@@ -121,7 +121,7 @@ Accès au serveur nginx : http://localhost:8090
 ![Description de l'image](images/img13.png)
 ---
 
-## 🛠 Création d’images Docker
+## 4 Création d’images Docker
 La création d'une image Docker implique l'écriture d'un Dockerfile, un script qui automatise la construction d'une image
 
 ### Dockerfile
@@ -136,20 +136,27 @@ CMD ["python", "app.py"]
 ### Build et Run
 ```bash
 docker build -t my-app .
+```
+![Description de l'image](images/img14.png)
+
+```bash
 docker run -d -p 5000:5000 my-app
 ```
-
+![Description de l'image](images/img15.png)
 ---
 
-## 💾 Volumes Docker
+## 5 Volumes Docker
 ```bash
 docker volume create my-volume
+```
+![Description de l'image](images/img16.png)
+```bash
 docker run -v my-volume:/app/data my-app
 ```
-
+![Description de l'image](images/img17.png)
 ---
 
-## 🔗 Docker Compose
+## 6 Docker Compose
 
 ### docker-compose.yml
 ```yaml
@@ -163,16 +170,26 @@ services:
 
 ### Commandes
 ```bash
-docker-compose up -d
-docker-compose down
+docker compose up -d
 ```
+![Description de l'image](images/img18.png)
+
+```bash
+docker compose down
+```
+![Description de l'image](images/img19.png)
 
 ---
 
-## 🌐 Réseaux Docker
+## 7 Réseaux Docker
 ```bash
-docker network create my-network
-docker run --network my-network nginx
+docker network create my-custom-network
 ```
+![Description de l'image](images/img20.png)
 
+```bash
+docker run -d --network my-custom-network --name app1 my-app
+docker run -d --network my-custom-network --name app2 my-app
+```
+![Description de l'image](images/img21.png)
 ---
